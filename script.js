@@ -21,7 +21,7 @@ function getCountry(country = 'bangladesh') {
             <h4 class="country__region">${data.region}</h4>
             <p class="country__row"><span>👫</span>${(
 							data.population / 1000000
-						).toFixed(1)} People</p>
+						).toFixed(1)}M People</p>
             <p class="country__row"><span>🗣️</span>${data.languages[0].name}</p>
             <p class="country__row"><span>💰</span>${
 							data.currencies[0].name
