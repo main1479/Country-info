@@ -4,17 +4,16 @@ const btn = document.querySelector('.btn-country');
 const countriesContainer = document.querySelector('.countries');
 const input = document.querySelector('.country__input');
 
-/////////////////////////////////////// 
+///////////////////////////////////////
 
-function getCountry(country = 'bangladesh'){
-   
-   const request = new XMLHttpRequest();
-		request.open('GET', `https://restcountries.eu/rest/v2/name/${country}`);
-		request.send();
-		request.addEventListener('load', function () {
-			const [data] = JSON.parse(this.responseText);
-			console.log(data);
-			const html = `
+function getCountry(country = 'bangladesh') {
+	const request = new XMLHttpRequest();
+	request.open('GET', `https://restcountries.eu/rest/v2/name/${country}`);
+	request.send();
+	request.addEventListener('load', function () {
+		const [data] = JSON.parse(this.responseText);
+		console.log(data);
+		const html = `
       <article class="country">
           <img class="country__img" src="${data.flag}"/>
           <div class="country__data">
@@ -31,13 +30,13 @@ function getCountry(country = 'bangladesh'){
       </article>
    `;
 
-			countriesContainer.insertAdjacentHTML('beforeend', html);
-			countriesContainer.style.opacity = '1';
-		});
+		countriesContainer.insertAdjacentHTML('beforeend', html);
+		countriesContainer.style.opacity = '1';
+	});
 }
-getCountry()
-document.querySelector('.form').addEventListener('submit', function(e){
-   e.preventDefault();
-   getCountry(input.value)
-   input.value = '';
-})
+getCountry();
+document.querySelector('.form').addEventListener('submit', function (e) {
+	e.preventDefault();
+	getCountry(input.value);
+	input.value = '';
+});
