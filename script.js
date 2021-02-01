@@ -39,4 +39,5 @@ getCountry()
 document.querySelector('.form').addEventListener('submit', function(e){
    e.preventDefault();
    getCountry(input.value)
+   input.value = '';
 })
